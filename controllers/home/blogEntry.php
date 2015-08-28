@@ -15,12 +15,12 @@ class HomeBlogEntryController extends \Sifo\Controller
 	public function build()
     {
 		$this->addModule( 'head', 'SharedHead' );
-        $this->setLayout( 'entries/blog_entry.tpl' );
+        	$this->setLayout( 'entries/blog_entry.tpl' );
 		$this->assign( 'entry', $this->getBlogEntry(  ) );
 		$this->assign( 'comments', $this->getBlogEntryComments(  ) );
 
 
-    }
+    	}
 
 	protected function getBlogEntry()
 	{
@@ -28,6 +28,7 @@ class HomeBlogEntryController extends \Sifo\Controller
 
 		$entry['id'] = parent::getUrlParam(0);
 		$title = parent::getUrlParam(1);
+		// bug in the framework required to take out semi-colon
 		list($title, $b) = explode(';', $title);
 		$entry['title'] = $title;
 		$entry['content'] = parent::getUrlParam(2);

@@ -1,8 +1,7 @@
 <?php
 namespace Simpleblog;
 
-class HomeIndexController extends SharedFirstLevelController
-{
+class HomeIndexController extends SharedFirstLevelController{
 	//protected $include_classes = array( 'FlashMessages', 'Pagination' );
 
 	/**
@@ -12,16 +11,13 @@ class HomeIndexController extends SharedFirstLevelController
 	 */
 	// public $is_json = false;
 
-	public function buildCommon()
-    {
-        $this->setLayout( 'home/index.tpl' );
+	public function buildCommon(){
+        	$this->setLayout( 'home/index.tpl' );
 		$this->assign( 'blog_entries', $this->getBlogEntries(  ) );
+	}
 
-    }
 
-
-	public function getCacheDefinition()
-	{
+	public function getCacheDefinition(){
 		// No caching:
 		return false;
 
@@ -35,8 +31,7 @@ class HomeIndexController extends SharedFirstLevelController
 		return array( 'name' => $cache_name, 'expiration' => 900 );
 	}
 	
-	protected function getBlogEntries()
-	{
+	protected function getBlogEntries(){
 		$entries = array();
 		
 		$blogEntryModel = new BlogEntryModel();

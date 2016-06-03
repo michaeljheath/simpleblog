@@ -12,18 +12,14 @@ class HomeBlogEntryController extends \Sifo\Controller
 	 */
 	public $is_json = false;
 
-	public function build()
-    {
+	public function build(){
 		$this->addModule( 'head', 'SharedHead' );
-        	$this->setLayout( 'entries/blog_entry.tpl' );
+		$this->setLayout( 'entries/blog_entry.tpl' );
 		$this->assign( 'entry', $this->getBlogEntry(  ) );
 		$this->assign( 'comments', $this->getBlogEntryComments(  ) );
-
-
     	}
 
-	protected function getBlogEntry()
-	{
+	protected function getBlogEntry()	{
 		$entry = array();
 
 		$entry['id'] = parent::getUrlParam(0);
@@ -36,8 +32,7 @@ class HomeBlogEntryController extends \Sifo\Controller
 		return $entry;
 	}
 	
-	protected function getBlogEntryComments()
-	{
+	protected function getBlogEntryComments(){
 		$comments = array();
 				
 		$blogEntryCommentModel = new BlogEntryCommentModel();

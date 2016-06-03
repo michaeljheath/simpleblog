@@ -1,8 +1,7 @@
 <?php
 namespace Simpleblog;
 
-class AdminSaveBlogEntryController extends \Sifo\Controller
-{
+class AdminSaveBlogEntryController extends \Sifo\Controller{
 	//protected $include_classes = array( 'FlashMessages', 'Pagination' );
 	
 	/**
@@ -12,13 +11,11 @@ class AdminSaveBlogEntryController extends \Sifo\Controller
 	 */
 	public $is_json = true;
 
-	public function build()
-    {
+	public function build(){
 		return $this->insertBlogEntry();
     }
 
-	public function insertBlogEntry()
-	{
+	public function insertBlogEntry(){
 		$success = true;
 		$return_values = array();
 		
@@ -36,6 +33,4 @@ class AdminSaveBlogEntryController extends \Sifo\Controller
 		
 		return $return_values;
 	}
-
-	
 }

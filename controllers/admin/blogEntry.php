@@ -1,8 +1,7 @@
 <?php
 namespace Simpleblog;
 
-class AdminBlogEntryController extends SharedFirstLevelController
-{
+class AdminBlogEntryController extends SharedFirstLevelController{
 	//protected $include_classes = array( 'FlashMessages', 'Pagination' );
 	
 	/**
@@ -12,13 +11,11 @@ class AdminBlogEntryController extends SharedFirstLevelController
 	 */
 	public $is_json = false;
 
-	public function buildCommon()
-    {
+	public function buildCommon(){
 		$this->setLayout( 'admin/blog_entry.tpl' );
-    }
+    	}
 
-	public function insertBlogEntry()
-	{
+	public function insertBlogEntry(){
 		$return_data = array();
 
 		// get the POST values
@@ -35,8 +32,7 @@ class AdminBlogEntryController extends SharedFirstLevelController
 		return $return_data;
 	}
 	
-	public function getCacheDefinition()
-	{
+	public function getCacheDefinition(){
 		// No caching:
 		return false;
 
@@ -49,7 +45,5 @@ class AdminBlogEntryController extends SharedFirstLevelController
 		// Caching with custom expiration , 900 seconds.
 		return array( 'name' => $cache_name, 'expiration' => 900 );
 	}
-	
-
 	
 }

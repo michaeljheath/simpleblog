@@ -5,22 +5,19 @@ use \Sifo\Controller;
 use \Sifo\JsPacker;
 use \Sifo\CssPacker;
 
-class SharedHeadController extends \Sifo\Controller
-{
+class SharedHeadController extends \Sifo\Controller{
 
 	protected $css_groups = array( 'default' );
 	protected $js_groups = array( 'default' );
 
-	public function build()
-	{
+	public function build(){
 		$this->setLayout( 'shared/head.tpl' );
 
 		$params = $this->getParams();
 		$this->assign( 'path', $params['path'] );
 		$this->getClass( 'Metadata', false );
 
-		if ( null == \Sifo\Metadata::get() )
-		{
+		if ( null == \Sifo\Metadata::get() ){
 			\Sifo\Metadata::setKey( 'default' );
 		}
 
@@ -34,23 +31,17 @@ class SharedHeadController extends \Sifo\Controller
 	 *
 	 * ONLY FOR DEMONSTRATION PURPOSES.
 	 */
-	static public function getStaticRevision()
-	{
+	static public function getStaticRevision(){
 		return md5( date( 'd-m-Y-H' ) );
 	}
 
 	/**
 	 * Assign a variable to the tpl with the HTML code to load the JS and CSS files.
 	 */
-		/**
-	 * Assign a variable to the tpl with the HTML code to load the JS and CSS files.
-	 */
-	protected function assignMedia()
-	{
+	protected function assignMedia(){
 
 		// On development create all the packed files on the fly:
-		if ( \Sifo\Domains::getInstance()->getDevMode() )
-		{
+		if ( \Sifo\Domains::getInstance()->getDevMode() ){
 			$packer = new \Sifo\JsPacker();
 			$packer->packMedia();
 			$packer = new \Sifo\CssPacker();

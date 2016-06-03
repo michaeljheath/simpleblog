@@ -1,8 +1,7 @@
 <?php
 namespace Simpleblog;
 
-class HomeBlogEntryCommentsController extends \Sifo\Controller
-{
+class HomeBlogEntryCommentsController extends \Sifo\Controller{
 	//protected $include_classes = array( 'FlashMessages', 'Pagination' );
 
 	/**
@@ -12,8 +11,7 @@ class HomeBlogEntryCommentsController extends \Sifo\Controller
 	 */
 	public $is_json = true;
 
-	public function build()
-    {
+	public function build(){
 		// get the form values
 		$filterPost = \Sifo\FilterPost::getInstance();
 		$values = array();
@@ -23,11 +21,9 @@ class HomeBlogEntryCommentsController extends \Sifo\Controller
 
 
 		return $this->insertBlogEntryComment($values);
-
-    }
+	}
 	
-	protected function insertBlogEntryComment($values)
-	{
+	protected function insertBlogEntryComment($values){
 		$success = true;
 		$return_values = array();
 		

@@ -4,12 +4,10 @@ namespace SimpleBlog;
 /**
  * Create common sets of actions for all controllers
  */
-abstract class SharedFirstLevelController extends \Sifo\Controller
-{
+abstract class SharedFirstLevelController extends \Sifo\Controller{
 	abstract public function buildCommon();
 
-	public function build()
-	{
+	public function build(){
 		// Common actions go here:
 		if ( $this->requiresAuth() )
 		{
@@ -35,10 +33,8 @@ abstract class SharedFirstLevelController extends \Sifo\Controller
 	 * @param string $classname Optional parameter. Name of the class you want to check. Leave unset to use executing class.
 	 * @return boolean
 	 */
-	protected function requiresAuth( $classname = null )
-	{
-		if ( null === $classname )
-		{
+	protected function requiresAuth( $classname = null ){
+		if ( null === $classname ){
 			$classname = get_class( $this );
 		}
 
@@ -51,8 +47,7 @@ abstract class SharedFirstLevelController extends \Sifo\Controller
 	 *
 	 * @return boolean
 	 */
-	protected function isLogged()
-	{
+	protected function isLogged(){
 		return true;
 	}
 }
